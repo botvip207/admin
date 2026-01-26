@@ -1,18 +1,34 @@
 {
-  "keys": [
-    {
-      "key": "novax207",
-      "user": "Tiến Đạt",
-      "status": "active",
-      "expiry": "2026-12-31",
-      "type": "Premium"
-    },
-    {
-      "key": "datreal11",
-      "user": "Người dùng A",
-      "status": "inactive",
-      "expiry": "2024-10-15",
-      "type": "Basic"
-    }
-  ]
+  "NOVAX-VIP-2024-001": {
+    "expiry": "2026-02-13",
+    "max_uses": 9999,
+    "used": 0,
+    "fingerprint": "",
+    "owner": "VIP Customer 1",
+    "created": "2024-01-01"
+  },
+  "PREMIUM-NOVA-2024-002": {
+    "expiry": "2026-02-13",
+    "max_uses": 5000,
+    "used": 124,
+    "fingerprint": "",
+    "owner": "Premium User 2",
+    "created": "2024-02-15"
+  },
+  "TIENDAT-SPECIAL-003": {
+    "expiry": "2026-02-13",
+    "max_uses": 10000,
+    "used": 567,
+    "fingerprint": "",
+    "owner": "Tiến Đạt Team",
+    "created": "2024-03-20"
+  },
+  "ULTIMATE-BOT-2024-004": {
+    "expiry": "2026-02-13",
+    "max_uses": 99999,
+    "used": 2345,
+    "fingerprint": "",
+    "owner": "Ultimate Bot User",
+    "created": "2024-01-30"
+  }
 }
