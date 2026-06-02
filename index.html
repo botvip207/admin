@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation | Hoàng Huy & Thu Thảo</title>
+
+<title>Thiệp Cưới Hoàng Huy ❤️ Thu Thảo</title>
+<meta name="description" content="Trân trọng kính mời Bạn và Người Thương tới chung vui cùng lễ cưới Hoàng Huy & Thu Thảo">
+
+<meta property="og:title" content="💍 Thiệp Cưới Hoàng Huy ❤️ Thu Thảo">
+<meta property="og:description" content="Trân trọng kính mời Bạn và Người Thương tới chung vui cùng ngày vui của chúng tôi">
+<meta property="og:image" content="preview.jpg">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="💍 Thiệp Cưới Hoàng Huy ❤️ Thu Thảo">
+<meta name="twitter:description" content="Wedding Invitation">
+<meta name="twitter:image" content="preview.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -14,7 +26,7 @@ html{scroll-behavior:smooth}
 body{
     font-family:'Montserrat',sans-serif;
     color:#fff;
-    background:#13060b;
+    background:#12060b;
     overflow-x:hidden;
 }
 
@@ -23,9 +35,10 @@ body::before{
     position:fixed;
     inset:0;
     background:
-    radial-gradient(circle at 20% 10%,rgba(255,210,120,.35),transparent 28%),
-    radial-gradient(circle at 80% 20%,rgba(255,120,170,.28),transparent 30%),
-    linear-gradient(135deg,#16070d,#3b1220,#8b4b5c);
+    radial-gradient(circle at 15% 10%,rgba(255,220,140,.35),transparent 28%),
+    radial-gradient(circle at 85% 18%,rgba(255,110,170,.28),transparent 32%),
+    radial-gradient(circle at 50% 90%,rgba(212,175,55,.22),transparent 35%),
+    linear-gradient(135deg,#13060c,#3b1220,#8b4b5c);
     z-index:-3;
 }
 
@@ -33,15 +46,16 @@ body::after{
     content:"";
     position:fixed;
     inset:0;
-    background-image:url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80");
+    background-image:url("preview.jpg");
     background-size:cover;
     background-position:center;
-    opacity:.18;
+    opacity:.14;
+    filter:blur(2px);
     z-index:-4;
 }
 
 .gold{
-    background:linear-gradient(90deg,#fff3b0,#d4af37,#fff3b0);
+    background:linear-gradient(90deg,#fff6c7,#d4af37,#fff6c7);
     -webkit-background-clip:text;
     color:transparent;
 }
@@ -49,24 +63,24 @@ body::after{
 .popup{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.72);
+    background:rgba(0,0,0,.78);
     display:flex;
     justify-content:center;
     align-items:center;
-    z-index:999;
+    z-index:9999;
     padding:20px;
 }
 
 .popup-box{
     width:100%;
-    max-width:500px;
+    max-width:520px;
     text-align:center;
-    padding:38px 24px;
-    border-radius:36px;
+    padding:40px 24px;
+    border-radius:38px;
     background:rgba(255,255,255,.13);
-    backdrop-filter:blur(18px);
-    border:2px solid rgba(255,215,120,.8);
-    box-shadow:0 0 60px rgba(212,175,55,.35);
+    backdrop-filter:blur(20px);
+    border:2px solid rgba(255,215,120,.85);
+    box-shadow:0 0 70px rgba(212,175,55,.38);
     animation:pop .7s ease;
 }
 
@@ -77,21 +91,21 @@ body::after{
 
 .popup-box h1{
     font-family:'Great Vibes',cursive;
-    font-size:58px;
+    font-size:62px;
 }
 
 .popup-box h2{
     font-family:'Cormorant Garamond',serif;
-    font-size:30px;
-    margin:12px 0;
+    font-size:31px;
+    margin:14px 0;
 }
 
 .popup-box p{
     line-height:1.8;
-    color:#ffeef5;
+    color:#fff1f6;
 }
 
-button,.btn{
+.btn,button{
     border:none;
     text-decoration:none;
     display:inline-block;
@@ -111,20 +125,18 @@ button,.btn{
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:45px 18px;
+    padding:42px 15px;
 }
 
 .card{
     width:100%;
-    max-width:960px;
-    padding:55px 25px;
+    max-width:980px;
+    padding:52px 22px;
     border-radius:48px;
     background:rgba(255,255,255,.11);
     backdrop-filter:blur(20px);
     border:2px solid rgba(255,224,145,.75);
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.45),
-        inset 0 0 40px rgba(255,255,255,.06);
+    box-shadow:0 30px 100px rgba(0,0,0,.45), inset 0 0 40px rgba(255,255,255,.06);
     position:relative;
     overflow:hidden;
 }
@@ -132,22 +144,26 @@ button,.btn{
 .card::before{
     content:"";
     position:absolute;
-    inset:18px;
+    inset:16px;
     border:1px solid rgba(255,230,160,.6);
     border-radius:36px;
     pointer-events:none;
 }
 
 .small-title{
-    letter-spacing:5px;
-    font-size:14px;
+    letter-spacing:4px;
+    font-size:13px;
     font-weight:700;
+    line-height:1.8;
+    white-space:normal;
+    margin-bottom:18px;
+    padding:0 15px;
 }
 
 .main-title{
     font-family:'Great Vibes',cursive;
-    font-size:86px;
-    margin:10px 0;
+    font-size:82px;
+    margin:8px 0;
     text-shadow:0 0 25px rgba(255,220,130,.3);
 }
 
@@ -167,6 +183,7 @@ button,.btn{
     font-family:'Great Vibes',cursive;
     font-size:72px;
     color:#fff8d5;
+    line-height:1.15;
 }
 
 .heart{
@@ -198,10 +215,6 @@ button,.btn{
     font-size:32px;
     font-weight:700;
     color:#ffe7a3;
-}
-
-.time small{
-    font-size:13px;
 }
 
 .container{
@@ -250,6 +263,53 @@ button,.btn{
     line-height:1.9;
     color:#fff3f7;
     font-size:17px;
+}
+
+.wedding-gallery{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:180px;
+    gap:16px;
+}
+
+.photo{
+    position:relative;
+    overflow:hidden;
+    border-radius:26px;
+    border:2px solid rgba(255,224,145,.75);
+    box-shadow:0 12px 35px rgba(0,0,0,.35);
+}
+
+.photo::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.38),transparent);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.photo:hover img{
+    transform:scale(1.12);
+}
+
+.photo.big{
+    grid-column:span 2;
+    grid-row:span 2;
+}
+
+.photo.tall{
+    grid-row:span 2;
+}
+
+.photo.wide{
+    grid-column:span 2;
 }
 
 .bank{
@@ -312,6 +372,13 @@ button,.btn{
     .name{font-size:52px}
     .grid{grid-template-columns:1fr}
     .countdown{grid-template-columns:repeat(2,1fr)}
+    .wedding-gallery{
+        grid-template-columns:repeat(2,1fr);
+        grid-auto-rows:160px;
+        gap:12px;
+    }
+    .photo.big,.photo.wide{grid-column:span 2}
+    .photo.tall{grid-row:span 2}
 }
 </style>
 </head>
@@ -335,7 +402,8 @@ button,.btn{
 
 <section class="hero">
     <div class="card">
-        <div class="small-title gold">━━━━ 💍 HAPPY WEDDING 💍 ━━━━</div>
+        <div class="small-title gold">💍 HAPPY WEDDING 💍</div>
+
         <h1 class="main-title gold">Wedding Invitation</h1>
 
         <p class="desc">🎀 Thay cho những tấm thiệp hồng chưa thể trao tay 🎀</p>
@@ -358,6 +426,7 @@ button,.btn{
         </div>
 
         <a class="btn" href="#event">Xem Lịch Cưới</a>
+        <a class="btn" href="#album">Xem Album</a>
         <a class="btn" href="#gift">Gửi Quà Mừng</a>
     </div>
 </section>
@@ -396,12 +465,24 @@ button,.btn{
         ✨ Vì một vài lý do và thiếu sót nên Tôi chưa thể trực tiếp gửi thiệp đến tận tay Bạn,
         mong Bạn thông cảm cho tôi 🤵👰‍♀️.
     </p>
-    <p>
-        💖 Sự hiện diện của Bạn là niềm vui và hạnh phúc của Vợ Chồng chúng tôi.
-    </p>
-    <p>
-        💖 Vợ Chồng tôi xin chân thành cảm ơn những lời chúc phúc và tình cảm của Bạn dành cho chúng tôi.
-    </p>
+    <p>💖 Sự hiện diện của Bạn là niềm vui và hạnh phúc của Vợ Chồng chúng tôi.</p>
+    <p>💖 Vợ Chồng tôi xin chân thành cảm ơn những lời chúc phúc và tình cảm của Bạn dành cho chúng tôi.</p>
+</section>
+
+<section class="section" id="album">
+    <h2 class="gold">Album Ảnh Cưới</h2>
+    <p>Những khoảnh khắc đẹp nhất trong hành trình yêu thương của chúng tôi</p>
+
+    <div class="wedding-gallery">
+        <div class="photo big"><img src="1.png" alt="Ảnh cưới 1"></div>
+        <div class="photo"><img src="2.png" alt="Ảnh cưới 2"></div>
+        <div class="photo"><img src="3.png" alt="Ảnh cưới 3"></div>
+        <div class="photo tall"><img src="4.png" alt="Ảnh cưới 4"></div>
+        <div class="photo"><img src="5.png" alt="Ảnh cưới 5"></div>
+        <div class="photo"><img src="6.png" alt="Ảnh cưới 6"></div>
+        <div class="photo wide"><img src="7.png" alt="Ảnh cưới 7"></div>
+        <div class="photo"><img src="8.png" alt="Ảnh cưới 8"></div>
+    </div>
 </section>
 
 <section class="section" id="gift">
@@ -438,8 +519,13 @@ function openCard(){
 let playing=false;
 function toggleMusic(){
     const music=document.getElementById("music");
-    if(playing){music.pause();playing=false}
-    else{music.play();playing=true}
+    if(playing){
+        music.pause();
+        playing=false;
+    }else{
+        music.play();
+        playing=true;
+    }
 }
 
 const weddingDate = new Date("2026-06-11T06:00:00").getTime();
@@ -448,7 +534,13 @@ setInterval(()=>{
     const now = new Date().getTime();
     const d = weddingDate - now;
 
-    if(d <= 0) return;
+    if(d <= 0){
+        days.innerText="00";
+        hours.innerText="00";
+        minutes.innerText="00";
+        seconds.innerText="00";
+        return;
+    }
 
     days.innerText = Math.floor(d/(1000*60*60*24));
     hours.innerText = Math.floor((d/(1000*60*60))%24);
