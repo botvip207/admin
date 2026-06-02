@@ -3,347 +3,314 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Wedding - Hoàng Huy & Thu Thảo</title>
+<title>Wedding Invitation | Hoàng Huy & Thu Thảo</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
-    min-height:100vh;
-    font-family:'Quicksand',sans-serif;
-    background:
-        radial-gradient(circle at top,#fff8fb 0%,#ffd6e7 35%,#b76e79 100%);
-    color:#5b2436;
+    font-family:'Montserrat',sans-serif;
+    color:#fff;
+    background:#13060b;
     overflow-x:hidden;
 }
 
-/* Popup */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 10%,rgba(255,210,120,.35),transparent 28%),
+    radial-gradient(circle at 80% 20%,rgba(255,120,170,.28),transparent 30%),
+    linear-gradient(135deg,#16070d,#3b1220,#8b4b5c);
+    z-index:-3;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    opacity:.18;
+    z-index:-4;
+}
+
+.gold{
+    background:linear-gradient(90deg,#fff3b0,#d4af37,#fff3b0);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
 .popup{
     position:fixed;
     inset:0;
-    z-index:9999;
-    background:
-        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
-        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80");
-    background-size:cover;
-    background-position:center;
+    background:rgba(0,0,0,.72);
     display:flex;
     justify-content:center;
     align-items:center;
+    z-index:999;
     padding:20px;
 }
 
 .popup-box{
-    max-width:460px;
     width:100%;
-    background:rgba(255,255,255,.92);
-    border-radius:35px;
-    padding:35px 22px;
+    max-width:500px;
     text-align:center;
-    border:3px solid #d4af37;
-    box-shadow:0 20px 70px rgba(0,0,0,.45);
-    animation:zoomIn .7s ease;
+    padding:38px 24px;
+    border-radius:36px;
+    background:rgba(255,255,255,.13);
+    backdrop-filter:blur(18px);
+    border:2px solid rgba(255,215,120,.8);
+    box-shadow:0 0 60px rgba(212,175,55,.35);
+    animation:pop .7s ease;
 }
 
-@keyframes zoomIn{
-    from{transform:scale(.6);opacity:0}
+@keyframes pop{
+    from{transform:scale(.7);opacity:0}
     to{transform:scale(1);opacity:1}
 }
 
 .popup-box h1{
     font-family:'Great Vibes',cursive;
-    font-size:48px;
-    color:#b76e79;
+    font-size:58px;
 }
 
 .popup-box h2{
-    font-family:'Playfair Display',serif;
-    color:#8b314d;
-    margin:15px 0;
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    margin:12px 0;
 }
 
 .popup-box p{
-    font-size:17px;
-    line-height:1.7;
+    line-height:1.8;
+    color:#ffeef5;
 }
 
-.popup-box button{
-    margin-top:22px;
+button,.btn{
     border:none;
-    padding:14px 34px;
-    border-radius:35px;
-    background:linear-gradient(135deg,#d4af37,#b76e79);
-    color:white;
-    font-size:17px;
-    font-weight:bold;
+    text-decoration:none;
+    display:inline-block;
+    margin:8px;
+    padding:14px 28px;
+    border-radius:40px;
+    background:linear-gradient(135deg,#f8df8b,#b76e79,#d4af37);
+    color:#fff;
+    font-weight:700;
     cursor:pointer;
-    box-shadow:0 10px 25px rgba(183,110,121,.4);
+    box-shadow:0 10px 35px rgba(212,175,55,.35);
 }
 
-/* Hero */
 .hero{
     min-height:100vh;
-    padding:45px 18px;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
-    position:relative;
+    padding:45px 18px;
 }
 
-.invite-card{
-    max-width:900px;
+.card{
     width:100%;
-    background:rgba(255,255,255,.88);
-    backdrop-filter:blur(8px);
-    border-radius:45px;
-    padding:45px 24px;
-    border:4px double #d4af37;
-    box-shadow:0 25px 80px rgba(100,30,60,.35);
+    max-width:960px;
+    padding:55px 25px;
+    border-radius:48px;
+    background:rgba(255,255,255,.11);
+    backdrop-filter:blur(20px);
+    border:2px solid rgba(255,224,145,.75);
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.45),
+        inset 0 0 40px rgba(255,255,255,.06);
     position:relative;
     overflow:hidden;
 }
 
-.invite-card::before{
+.card::before{
     content:"";
     position:absolute;
-    inset:16px;
-    border:1.8px dashed rgba(212,175,55,.8);
-    border-radius:34px;
+    inset:18px;
+    border:1px solid rgba(255,230,160,.6);
+    border-radius:36px;
     pointer-events:none;
 }
 
-.top-title{
-    font-family:'Playfair Display',serif;
-    color:#b76e79;
-    font-size:22px;
-    letter-spacing:4px;
-    margin-bottom:12px;
+.small-title{
+    letter-spacing:5px;
+    font-size:14px;
+    font-weight:700;
 }
 
 .main-title{
     font-family:'Great Vibes',cursive;
-    font-size:70px;
-    color:#9c274d;
-    text-shadow:2px 3px 0 #ffe2ec;
+    font-size:86px;
+    margin:10px 0;
+    text-shadow:0 0 25px rgba(255,220,130,.3);
 }
 
-.subtitle{
-    margin:12px auto 25px;
-    font-size:18px;
-    max-width:650px;
-    line-height:1.8;
+.desc{
+    max-width:720px;
+    margin:15px auto;
+    line-height:1.9;
+    color:#fff1f6;
+    font-size:17px;
 }
 
 .names{
-    margin:30px 0;
+    margin:35px 0;
 }
 
-.groom,.bride{
+.name{
     font-family:'Great Vibes',cursive;
-    font-size:62px;
-    color:#7c233c;
-}
-
-.and{
-    font-family:'Playfair Display',serif;
-    font-size:32px;
-    color:#d4af37;
-    margin:8px 0;
+    font-size:72px;
+    color:#fff8d5;
 }
 
 .heart{
-    display:inline-block;
+    font-size:42px;
     animation:pulse 1.2s infinite;
 }
 
 @keyframes pulse{
-    50%{transform:scale(1.3)}
+    50%{transform:scale(1.25)}
 }
 
 .countdown{
+    max-width:650px;
+    margin:35px auto;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    max-width:580px;
-    margin:30px auto;
+    gap:14px;
 }
 
-.time-box{
-    background:linear-gradient(145deg,#fff,#ffe6ef);
-    border:2px solid #f1c2d1;
-    border-radius:22px;
-    padding:15px 8px;
-    box-shadow:0 8px 25px rgba(183,110,121,.18);
+.time{
+    padding:18px 8px;
+    border-radius:24px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,224,145,.5);
 }
 
-.time-box span{
+.time span{
     display:block;
-    font-size:30px;
-    font-weight:bold;
-    color:#9c274d;
+    font-size:32px;
+    font-weight:700;
+    color:#ffe7a3;
 }
 
-.time-box small{
-    color:#8b314d;
-    font-weight:bold;
+.time small{
+    font-size:13px;
 }
 
-/* Sections */
 .container{
-    max-width:980px;
+    max-width:1050px;
     margin:auto;
-    padding:0 18px 60px;
+    padding:0 18px 70px;
 }
 
 .section{
-    background:rgba(255,255,255,.9);
-    margin:28px 0;
-    border-radius:35px;
-    padding:30px 22px;
+    margin:30px 0;
+    padding:35px 24px;
+    border-radius:38px;
     text-align:center;
-    border:3px solid rgba(212,175,55,.65);
-    box-shadow:0 15px 50px rgba(100,30,60,.2);
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(16px);
+    border:1.8px solid rgba(255,224,145,.65);
+    box-shadow:0 20px 70px rgba(0,0,0,.28);
 }
 
 .section h2{
-    font-family:'Playfair Display',serif;
-    font-size:30px;
-    color:#9c274d;
-    margin-bottom:18px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;
+    margin-bottom:22px;
 }
 
-.section p{
-    font-size:18px;
-    line-height:1.9;
-    margin:8px 0;
-}
-
-.event-grid{
+.grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:22px;
 }
 
-.event-box{
-    background:linear-gradient(145deg,#fff7fb,#ffe3ef);
-    border-radius:28px;
-    padding:24px 16px;
-    border:2px dashed #d4af37;
+.box{
+    padding:28px 18px;
+    border-radius:30px;
+    background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.08));
+    border:1px solid rgba(255,224,145,.5);
 }
 
-.event-box h3{
-    color:#b76e79;
+.box h3{
     font-size:24px;
-    margin-bottom:12px;
+    margin-bottom:15px;
+    color:#ffe7a3;
 }
 
-.address{
-    font-weight:bold;
-    color:#6b1f36;
-}
-
-.btn-group{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:20px;
-}
-
-.btn{
-    text-decoration:none;
-    padding:13px 24px;
-    border-radius:35px;
-    color:white;
-    font-weight:bold;
-    background:linear-gradient(135deg,#9c274d,#d4af37);
-    box-shadow:0 8px 22px rgba(156,39,77,.3);
+.box p,.section p{
+    line-height:1.9;
+    color:#fff3f7;
+    font-size:17px;
 }
 
 .bank{
-    max-width:560px;
+    max-width:580px;
     margin:auto;
-    background:linear-gradient(145deg,#fff,#ffe6ef);
-    padding:24px;
-    border-radius:30px;
-    border:2px solid #d4af37;
-}
-
-.qr{
-    margin-top:20px;
+    padding:28px;
+    border-radius:32px;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,224,145,.7);
 }
 
 .qr img{
-    width:220px;
-    height:220px;
+    margin-top:18px;
+    width:230px;
+    height:230px;
     object-fit:cover;
+    border-radius:28px;
     padding:10px;
-    border-radius:25px;
-    border:4px solid #d4af37;
     background:#fff;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    border:5px solid #d4af37;
+    box-shadow:0 0 35px rgba(212,175,55,.45);
 }
 
 .footer{
     text-align:center;
-    padding:35px 15px;
-    color:white;
-    background:linear-gradient(135deg,#7c233c,#b76e79);
+    padding:45px 15px;
+    background:rgba(0,0,0,.35);
 }
 
 .footer h2{
     font-family:'Great Vibes',cursive;
-    font-size:48px;
-    color:#fff7d6;
+    font-size:58px;
 }
 
-/* Falling flowers */
-.fall{
-    position:fixed;
-    top:-40px;
-    z-index:1;
-    pointer-events:none;
-    animation:fall linear forwards;
-}
-
-@keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(360deg);
-        opacity:.1;
-    }
-}
-
-/* Music button */
 .music{
     position:fixed;
     right:18px;
     bottom:18px;
-    width:55px;
-    height:55px;
-    border:none;
+    width:58px;
+    height:58px;
     border-radius:50%;
-    background:linear-gradient(135deg,#d4af37,#9c274d);
-    color:white;
-    font-size:23px;
-    z-index:50;
-    box-shadow:0 8px 25px rgba(0,0,0,.3);
+    z-index:99;
+    font-size:24px;
+}
+
+.fall{
+    position:fixed;
+    top:-40px;
+    pointer-events:none;
+    animation:fall linear forwards;
+    z-index:2;
+}
+
+@keyframes fall{
+    to{transform:translateY(110vh) rotate(360deg);opacity:.1}
 }
 
 @media(max-width:720px){
-    .main-title{font-size:52px}
-    .groom,.bride{font-size:48px}
-    .event-grid{grid-template-columns:1fr}
+    .main-title{font-size:58px}
+    .name{font-size:52px}
+    .grid{grid-template-columns:1fr}
     .countdown{grid-template-columns:repeat(2,1fr)}
 }
 </style>
@@ -353,13 +320,10 @@ body{
 
 <div class="popup" id="popup">
     <div class="popup-box">
-        <h1>Happy Wedding</h1>
+        <h1 class="gold">Happy Wedding</h1>
         <h2>Hoàng Huy ❤️ Thu Thảo</h2>
-        <p>
-            Trân trọng kính mời Bạn và Người Thương tới tham dự ngày vui trọng đại
-            của gia đình chúng tôi.
-        </p>
-        <button onclick="openInvitation()">💌 Mở Thiệp Cưới</button>
+        <p>Trân trọng kính mời Bạn và Người Thương tới chung vui trong ngày trọng đại của chúng tôi.</p>
+        <button onclick="openCard()">💌 Mở Thiệp Cưới</button>
     </div>
 </div>
 
@@ -370,176 +334,142 @@ body{
 <button class="music" onclick="toggleMusic()">🎵</button>
 
 <section class="hero">
-    <div class="invite-card">
-        <div class="top-title">━━━━ 💍 HAPPY WEDDING 💍 ━━━━</div>
+    <div class="card">
+        <div class="small-title gold">━━━━ 💍 HAPPY WEDDING 💍 ━━━━</div>
+        <h1 class="main-title gold">Wedding Invitation</h1>
 
-        <h1 class="main-title">Wedding Invitation</h1>
-
-        <p class="subtitle">
-            🎀 Thay cho những tấm thiệp hồng chưa thể trao tay 🎀
-        </p>
+        <p class="desc">🎀 Thay cho những tấm thiệp hồng chưa thể trao tay 🎀</p>
 
         <div class="names">
-            <div class="groom">🤵 Hoàng Huy</div>
-            <div class="and"><span class="heart">❤️</span></div>
-            <div class="bride">Thu Thảo 👰‍♀️</div>
+            <div class="name">🤵 Hoàng Huy</div>
+            <div class="heart">❤️</div>
+            <div class="name">Thu Thảo 👰‍♀️</div>
         </div>
 
-        <p class="subtitle">
-            💖 Trân trọng thông báo và kính mời Bạn và Người Thương tới chung vui
-            cùng đám cưới của Vợ Chồng chúng tôi.
+        <p class="desc">
+            💖 Trân trọng thông báo và kính mời Bạn và Người Thương tới chung vui cùng đám cưới của Vợ Chồng chúng tôi.
         </p>
 
         <div class="countdown">
-            <div class="time-box"><span id="days">00</span><small>Ngày</small></div>
-            <div class="time-box"><span id="hours">00</span><small>Giờ</small></div>
-            <div class="time-box"><span id="minutes">00</span><small>Phút</small></div>
-            <div class="time-box"><span id="seconds">00</span><small>Giây</small></div>
+            <div class="time"><span id="days">00</span><small>Ngày</small></div>
+            <div class="time"><span id="hours">00</span><small>Giờ</small></div>
+            <div class="time"><span id="minutes">00</span><small>Phút</small></div>
+            <div class="time"><span id="seconds">00</span><small>Giây</small></div>
         </div>
 
-        <div class="btn-group">
-            <a class="btn" href="#event">Xem Lịch Cưới</a>
-            <a class="btn" href="#gift">Gửi Quà Mừng</a>
-        </div>
+        <a class="btn" href="#event">Xem Lịch Cưới</a>
+        <a class="btn" href="#gift">Gửi Quà Mừng</a>
     </div>
 </section>
 
 <div class="container">
 
-    <section class="section" id="event">
-        <h2>✨ Thông Tin Buổi Lễ ✨</h2>
+<section class="section" id="event">
+    <h2 class="gold">Thông Tin Buổi Lễ</h2>
 
-        <div class="event-grid">
-            <div class="event-box">
-                <h3>📍 BỮA CƠM THÂN MẬT</h3>
-                <p>🕰 Vào lúc: <b>6h00</b></p>
-                <p>📅 Ngày <b>10/06/2026</b> Dương Lịch</p>
-                <p>🌙 Tức ngày <b>25/04/2026</b> Âm Lịch</p>
-                <p class="address">
-                    🏡 Đội 2, Thôn Minh Tân,<br>
-                    Xã Kim Anh, Hà Nội
-                </p>
-            </div>
-
-            <div class="event-box">
-                <h3>💍 LỄ THÀNH HÔN</h3>
-                <p>🕰 Tổ chức vào ngày:</p>
-                <p>📅 <b>11/06/2026</b> Dương Lịch</p>
-                <p>🌙 Tức ngày <b>26/04/2026</b> Âm Lịch</p>
-                <p class="address">
-                    🏡 Đội 2, Thôn Minh Tân,<br>
-                    Xã Kim Anh, Hà Nội
-                </p>
-            </div>
+    <div class="grid">
+        <div class="box">
+            <h3>📍 Bữa Cơm Thân Mật</h3>
+            <p>🕰 Vào lúc: <b>6h00</b></p>
+            <p>📅 Ngày <b>10/06/2026</b> Dương Lịch</p>
+            <p>🌙 Tức ngày <b>25/04/2026</b> Âm Lịch</p>
+            <p>🏡 Đội 2, Thôn Minh Tân, Xã Kim Anh, Hà Nội</p>
         </div>
 
-        <div class="btn-group">
-            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Đội 2 Thôn Minh Tân Xã Kim Anh Hà Nội">
-                📍 Mở Bản Đồ
-            </a>
+        <div class="box">
+            <h3>💍 Lễ Thành Hôn</h3>
+            <p>📅 Ngày <b>11/06/2026</b> Dương Lịch</p>
+            <p>🌙 Tức ngày <b>26/04/2026</b> Âm Lịch</p>
+            <p>🏡 Đội 2, Thôn Minh Tân, Xã Kim Anh, Hà Nội</p>
         </div>
-    </section>
+    </div>
 
-    <section class="section">
-        <h2>💌 Lời Ngỏ</h2>
-        <p>
-            ✨ Vì một vài lý do và thiếu sót nên Tôi chưa thể trực tiếp gửi thiệp
-            đến tận tay Bạn, mong Bạn thông cảm cho tôi 🤵👰‍♀️.
-        </p>
-        <p>
-            💖 Sự hiện diện của Bạn là niềm vui và hạnh phúc của Vợ Chồng chúng tôi.
-        </p>
-        <p>
-            💖 Vợ Chồng tôi xin chân thành cảm ơn những lời chúc phúc và tình cảm
-            của Bạn dành cho chúng tôi.
-        </p>
-    </section>
+    <br>
+    <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Đội 2 Thôn Minh Tân Xã Kim Anh Hà Nội">
+        📍 Mở Bản Đồ
+    </a>
+</section>
 
-    <section class="section" id="gift">
-        <h2>🎁 Quà Mừng Từ Xa</h2>
+<section class="section">
+    <h2 class="gold">Lời Ngỏ</h2>
+    <p>
+        ✨ Vì một vài lý do và thiếu sót nên Tôi chưa thể trực tiếp gửi thiệp đến tận tay Bạn,
+        mong Bạn thông cảm cho tôi 🤵👰‍♀️.
+    </p>
+    <p>
+        💖 Sự hiện diện của Bạn là niềm vui và hạnh phúc của Vợ Chồng chúng tôi.
+    </p>
+    <p>
+        💖 Vợ Chồng tôi xin chân thành cảm ơn những lời chúc phúc và tình cảm của Bạn dành cho chúng tôi.
+    </p>
+</section>
 
-        <div class="bank">
-            <p>💳 STK: <b>0862968675</b></p>
-            <p>🏦 Ngân hàng: <b>MB Bank</b></p>
-            <p>👤 Chủ tài khoản: <b>Hoàng Văn Huy</b></p>
+<section class="section" id="gift">
+    <h2 class="gold">Quà Mừng Từ Xa</h2>
 
-            <div class="qr">
-                <p><b>📷 Quét mã QR để gửi quà mừng</b></p>
-                <img src="qr.png" alt="QR chuyển khoản">
-            </div>
+    <div class="bank">
+        <p>💳 STK: <b>0862968675</b></p>
+        <p>🏦 MB Bank</p>
+        <p>👤 Chủ tài khoản: <b>Hoàng Văn Huy</b></p>
+
+        <div class="qr">
+            <img src="qr.png" alt="QR chuyển khoản">
         </div>
+    </div>
 
-        <div class="btn-group">
-            <a class="btn" href="tel:0862968675">☎ Gọi Chúc Mừng</a>
-            <a class="btn" onclick="alert('Cảm ơn Bạn đã gửi lời chúc phúc tới cô dâu chú rể 💖')">
-                💌 Gửi Lời Chúc
-            </a>
-        </div>
-    </section>
+    <br>
+    <a class="btn" href="tel:0862968675">☎ Gọi Chúc Mừng</a>
+    <a class="btn" onclick="alert('Cảm ơn Bạn đã gửi lời chúc phúc 💖')">💌 Gửi Lời Chúc</a>
+</section>
 
 </div>
 
 <footer class="footer">
-    <h2>Trân Trọng Kính Mời</h2>
+    <h2 class="gold">Trân Trọng Kính Mời</h2>
     <p>Hoàng Huy ❤️ Thu Thảo</p>
 </footer>
 
 <script>
-function openInvitation(){
-    document.getElementById("popup").style.display = "none";
+function openCard(){
+    document.getElementById("popup").style.display="none";
     document.getElementById("music").play();
 }
 
-let isPlay = false;
+let playing=false;
 function toggleMusic(){
-    const music = document.getElementById("music");
-    if(isPlay){
-        music.pause();
-        isPlay = false;
-    }else{
-        music.play();
-        isPlay = true;
-    }
+    const music=document.getElementById("music");
+    if(playing){music.pause();playing=false}
+    else{music.play();playing=true}
 }
 
-/* Countdown */
 const weddingDate = new Date("2026-06-11T06:00:00").getTime();
 
-setInterval(() => {
+setInterval(()=>{
     const now = new Date().getTime();
-    const distance = weddingDate - now;
+    const d = weddingDate - now;
 
-    if(distance <= 0){
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
-        return;
-    }
+    if(d <= 0) return;
 
-    document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-    document.getElementById("hours").innerText = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    document.getElementById("minutes").innerText = Math.floor((distance / (1000 * 60)) % 60);
-    document.getElementById("seconds").innerText = Math.floor((distance / 1000) % 60);
+    days.innerText = Math.floor(d/(1000*60*60*24));
+    hours.innerText = Math.floor((d/(1000*60*60))%24);
+    minutes.innerText = Math.floor((d/(1000*60))%60);
+    seconds.innerText = Math.floor((d/1000)%60);
 },1000);
 
-/* Hoa rơi */
-const icons = ["🌸","🌹","💮","💖","💕","🌷","✨"];
+const icons=["🌸","🌹","💮","✨","💖","💕","🌷"];
 
-function createFall(){
-    const el = document.createElement("div");
-    el.className = "fall";
-    el.innerHTML = icons[Math.floor(Math.random()*icons.length)];
-    el.style.left = Math.random()*100 + "vw";
-    el.style.fontSize = Math.random()*18 + 18 + "px";
-    el.style.animationDuration = Math.random()*5 + 5 + "s";
-    el.style.opacity = Math.random()*.8 + .2;
-    document.body.appendChild(el);
-
-    setTimeout(() => el.remove(), 10000);
+function fall(){
+    const e=document.createElement("div");
+    e.className="fall";
+    e.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+    e.style.left=Math.random()*100+"vw";
+    e.style.fontSize=Math.random()*18+18+"px";
+    e.style.animationDuration=Math.random()*5+6+"s";
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),11000);
 }
 
-setInterval(createFall, 300);
+setInterval(fall,260);
 </script>
 
 </body>
