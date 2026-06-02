@@ -69,13 +69,14 @@ body::after{
     align-items:center;
     z-index:9999;
     padding:20px;
+    overflow:auto;
 }
 
 .popup-box{
     width:100%;
-    max-width:520px;
+    max-width:540px;
     text-align:center;
-    padding:40px 24px;
+    padding:34px 22px;
     border-radius:38px;
     background:rgba(255,255,255,.13);
     backdrop-filter:blur(20px);
@@ -91,18 +92,63 @@ body::after{
 
 .popup-box h1{
     font-family:'Great Vibes',cursive;
-    font-size:62px;
+    font-size:58px;
 }
 
 .popup-box h2{
     font-family:'Cormorant Garamond',serif;
-    font-size:31px;
-    margin:14px 0;
+    font-size:30px;
+    margin:12px 0;
 }
 
 .popup-box p{
     line-height:1.8;
     color:#fff1f6;
+}
+
+.quick-gift{
+    margin:20px 0;
+    padding:18px;
+    border-radius:24px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,224,145,.55);
+}
+
+.quick-gift h3{
+    color:#ffe7a3;
+    margin-bottom:8px;
+}
+
+.gift-note{
+    font-size:14px;
+    opacity:.9;
+    margin-bottom:12px;
+}
+
+.quick-gift input{
+    width:100%;
+    margin:7px 0;
+    padding:13px 15px;
+    border-radius:18px;
+    border:1px solid rgba(255,224,145,.7);
+    background:rgba(255,255,255,.95);
+    outline:none;
+    font-size:15px;
+    color:#5b2436;
+}
+
+.qr-result{
+    margin-top:15px;
+}
+
+.qr-result img{
+    width:210px;
+    height:210px;
+    border-radius:22px;
+    padding:8px;
+    background:white;
+    border:4px solid #d4af37;
+    box-shadow:0 0 30px rgba(212,175,55,.45);
 }
 
 .btn,button{
@@ -155,7 +201,6 @@ body::after{
     font-size:13px;
     font-weight:700;
     line-height:1.8;
-    white-space:normal;
     margin-bottom:18px;
     padding:0 15px;
 }
@@ -164,7 +209,6 @@ body::after{
     font-family:'Great Vibes',cursive;
     font-size:82px;
     margin:8px 0;
-    text-shadow:0 0 25px rgba(255,220,130,.3);
 }
 
 .desc{
@@ -368,6 +412,7 @@ body::after{
 }
 
 @media(max-width:720px){
+    .popup-box h1{font-size:48px}
     .main-title{font-size:58px}
     .name{font-size:52px}
     .grid{grid-template-columns:1fr}
@@ -390,6 +435,22 @@ body::after{
         <h1 class="gold">Happy Wedding</h1>
         <h2>Hoàng Huy ❤️ Thu Thảo</h2>
         <p>Trân trọng kính mời Bạn và Người Thương tới chung vui trong ngày trọng đại của chúng tôi.</p>
+
+        <div class="quick-gift">
+            <h3>💌 Gửi lời chúc từ xa</h3>
+            <p class="gift-note">Hoàn toàn tùy tâm, sự hiện diện của Bạn đã là niềm vui lớn nhất.</p>
+
+            <input id="moneyInput" type="number" placeholder="Nhập số tiền VND, ví dụ: 500000">
+            <input id="noteInput" type="text" placeholder="Nội dung, ví dụ: Chuc mung dam cuoi">
+
+            <button type="button" onclick="createQR()">✨ Tạo mã QR</button>
+
+            <div id="qrResult" class="qr-result" style="display:none;">
+                <img id="dynamicQR" src="" alt="QR chuyển khoản">
+                <p>Quét mã để gửi lời chúc 💖</p>
+            </div>
+        </div>
+
         <button onclick="openCard()">💌 Mở Thiệp Cưới</button>
     </div>
 </div>
@@ -427,7 +488,7 @@ body::after{
 
         <a class="btn" href="#event">Xem Lịch Cưới</a>
         <a class="btn" href="#album">Xem Album</a>
-        <a class="btn" href="#gift">Gửi Quà Mừng</a>
+        <a class="btn" href="#gift">Lời Chúc Từ Xa</a>
     </div>
 </section>
 
@@ -486,7 +547,7 @@ body::after{
 </section>
 
 <section class="section" id="gift">
-    <h2 class="gold">Quà Mừng Từ Xa</h2>
+    <h2 class="gold">Lời Chúc Từ Xa</h2>
 
     <div class="bank">
         <p>💳 STK: <b>0862968675</b></p>
@@ -513,7 +574,8 @@ body::after{
 <script>
 function openCard(){
     document.getElementById("popup").style.display="none";
-    document.getElementById("music").play();
+    const music = document.getElementById("music");
+    music.play().catch(()=>{});
 }
 
 let playing=false;
@@ -526,6 +588,29 @@ function toggleMusic(){
         music.play();
         playing=true;
     }
+}
+
+function createQR(){
+    const amount = document.getElementById("moneyInput").value.trim();
+    const note = document.getElementById("noteInput").value.trim() || "Chuc mung dam cuoi Hoang Huy Thu Thao";
+
+    if(!amount || amount <= 0){
+        alert("Vui lòng nhập số tiền hợp lệ 💖");
+        return;
+    }
+
+    const bank = "MB";
+    const account = "0862968675";
+    const accountName = "HOANG VAN HUY";
+
+    const qrURL =
+        `https://img.vietqr.io/image/${bank}-${account}-compact2.png` +
+        `?amount=${encodeURIComponent(amount)}` +
+        `&addInfo=${encodeURIComponent(note)}` +
+        `&accountName=${encodeURIComponent(accountName)}`;
+
+    document.getElementById("dynamicQR").src = qrURL;
+    document.getElementById("qrResult").style.display = "block";
 }
 
 const weddingDate = new Date("2026-06-11T06:00:00").getTime();
